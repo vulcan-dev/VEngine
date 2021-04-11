@@ -19,7 +19,7 @@ packages/
 *.sdf
 *.opensdf
 *.suo
-*.vcxproj.user
+*.vcxproj.*
 
 # Visual Studio performance profiling
 *.vsp
