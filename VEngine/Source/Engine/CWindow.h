@@ -23,6 +23,7 @@ namespace VEngine {
 		void Initialize();
 
 		inline const bool isRunning() const { return !glfwWindowShouldClose(this->_window.get()); }
+		inline GLFWwindow* getWindow() { return this->_window.get(); }
 
 		~CWindow();
 
