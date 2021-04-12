@@ -5,19 +5,25 @@ namespace VEngine {
 
 	void CWindow::Initialize() {
 		glewExperimental = GL_TRUE;
+
+		/* Initialize GLFW */
 		if (!glfwInit()) {
 			Utilities::Log._logger->critical("Failed to initialize GLFW");
 			glfwTerminate();
 		}
 
+		/* Set all the window hints for OpenGL */
 		glfwWindowHint(GLFW_SAMPLES, 16);
 		glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 4);
 		glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 6);
 		glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 
+		/* Set the GLFW error callback */
 		glfwSetErrorCallback(this->CALLBACK_GLFW_ERROR);
+
+		/* Create the window */
 		this->_window.reset(glfwCreateWindow(this->_height, this->_height, this->_title.c_str(), nullptr, nullptr));
-		if (this->_window == nullptr) {
+		if (this->_window == nullptr) { /* Check if the window failed to be created, if so then close the application. */
 			Utilities::Log._logger->critical("Failed to create window");
 			glfwTerminate();
 		}

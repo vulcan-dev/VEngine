@@ -17,13 +17,16 @@ namespace VEngine {
 	namespace Utilities {
 		struct Logger {
 			Logger() {
+				/* Setup the logging to the console. */
 				auto console_sink = std::make_shared<spdlog::sinks::stdout_color_sink_mt>();
 				console_sink->set_level(spdlog::level::info);
 				console_sink->set_pattern("[%H:%M:%S] [%^%l%$] %v");
 
+				/* Setup the file logging */
 				auto file_sink = std::make_shared<spdlog::sinks::basic_file_sink_mt>("Logs/spdlog.txt", true);
 				file_sink->set_level(spdlog::level::trace);
 
+				/* Create the logger to use both console logger and the file logger */
 				this->_logger = std::make_shared<spdlog::logger>(spdlog::logger("VEngine", { console_sink, file_sink }));
 				this->_logger->set_level(spdlog::level::debug);
 
@@ -44,6 +47,7 @@ namespace VEngine {
 				return found;
 			}
 
+			/* Loop over all the passed arguments and see if it is equal to the option variable. If it is then return true because it has been found */
 			for (uint32_t i = 1; i < argc; i++) {
 				SPDLOG_DEBUG("[{0}] Launch option - {1}", i, argv[i]);
 				if (argv[i] == option) {
