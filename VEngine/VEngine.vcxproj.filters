@@ -3,9 +3,11 @@
   <ItemGroup>
     <ClCompile Include="Source\Source.cpp" />
     <ClCompile Include="Source\Engine\CWindow.cpp" />
+    <ClCompile Include="Source\Application\Application.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\Engine\CWindow.h" />
     <ClInclude Include="Source\Engine\Utilities.h" />
+    <ClInclude Include="Source\Application\Application.h" />
   </ItemGroup>
 </Project>

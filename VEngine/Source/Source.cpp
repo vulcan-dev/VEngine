@@ -1,15 +1,10 @@
-#include <iostream>
-#include "Engine/Utilities.h"
+#include "Application/Application.h"
 
 int main(int argc, char* argv[]) {
-	/* All test code */
+	Application App;
+	App.Initialize();
 
-	VEngine::Utilities::Log._logger->info("Main function called");
+	App.Update();
 
-	if (VEngine::Utilities::GetLaunchOption(argc, argv, "-fullscreen")) {
-		VEngine::Utilities::Log._logger->info("Launching with fullscreen");
-	}
-
-	std::cin.get(); // Pause the console (that's all it is as of right now)
 	return EXIT_SUCCESS;
 }

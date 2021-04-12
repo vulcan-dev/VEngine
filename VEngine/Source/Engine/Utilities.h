@@ -30,17 +30,12 @@ namespace VEngine {
 				spdlog::register_logger(_logger);
 			}
 
-			~Logger() {
-
-			}
-
-		public:
 			std::shared_ptr<spdlog::logger> _logger;
 		};
 
-		Logger Log;
+		inline Logger Log;
 
-		bool GetLaunchOption(const uint32_t argc, char* argv[], const std::string& option) {
+		inline bool GetLaunchOption(const uint32_t argc, char* argv[], const std::string& option) {
 			bool found = false;
 
 			/* First argument will be the location of this exectuable so we skip it. If there's no other option after that then return false */
